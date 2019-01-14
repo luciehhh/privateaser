@@ -146,6 +146,36 @@ const actors = [{
   }]
 }];
 
+/*function barsPerHour(barid){
+	for(var i=0; i<bars.length; i++){
+		if(bars.id == barid){
+		return bars.PricePerHour ;
+}}}
+
+function barsPerPerson(barid){
+	for(var i=0; i<bars.length; i++){
+		if(bars.id == barid){
+		return bars.PricePerPerson ;
+}}}
+
+;*/
+
+//return bars.find(bar=> bar.id, id===id);
+
+const getBar = id => bars.find(bar=>bar.id === id);
+
+
+
+events.forEach(function(event){
+const {barId, persons, time} = event;
+const {pricePerHour, pricePerPerson} = getBar(barId);
+const bar = getBar(event.barId);
+
+event.price = event.time*bar.pricePerHour + event.persons*bar.pricePerPerson 
+console.log(event);
+})
+
 console.log(bars);
 console.log(events);
 console.log(actors);
+
